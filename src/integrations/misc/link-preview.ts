@@ -100,7 +100,7 @@ export async function detectImageUrl(url: string): Promise<boolean> {
 			...getAxiosSettings(),
 		})
 
-		const contentType = response.headers.get("content-type")
+		const contentType = response.headers["content-type"]
 		return typeof contentType === "string" && contentType.startsWith("image/")
 	} catch (_error) {
 		// If we can't determine, fall back to checking the file extension
